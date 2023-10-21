@@ -1,21 +1,24 @@
 #pragma once
-#include <iostream>
-#include <vector>
-#include <fstream>
+
+#include "baseClass.h"
 
 class Keeper {
 private:
-    Keeper();
-    ~Keeper();
-    std::vector<Base*> objects;
+    Base** array_with_element;
+    int size;
+    int count_element;
 public:
-    Keeper() {}
-    ~Keeper() {
-        clear();
-    }
-    void add(Base* obj);
-    void remove(Base* obj);
-    void clear();
-    void save(const std::string& filename);
-    void load(const std::string& filename);
+    Keeper();
+    Keeper(int size);
+    Keeper(const Keeper& K);
+    ~Keeper();
+
+    void Set();
+    void Change();
+    void GetAll();
+    void GetChoice();
+    void Delete();
+    Keeper& operator -=(int element);
+    void loadK();
+    void saveK();
 };
