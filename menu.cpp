@@ -7,9 +7,6 @@ using namespace std;
 
 
 void workMenu(void);
-void menuForAuto(void);
-void menuForMoto(void);
-void menuForBus(void);
 int main(void) {
 	Keeper keeper;
 	setlocale(LC_ALL, "Russian");
@@ -19,7 +16,7 @@ int main(void) {
 		workMenu();
 		try {
 			cin >> command;
-			if (command != "0" && command != "1" && command != "2" && command != "3" && command != "4" && command != "5") throw "Errand";
+			if (command != "0" && command != "1" && command != "2" && command != "3" && command != "4" && command != "5" && command != "6" && command != "7") throw "Errand";
 		}
 		catch (const std::exception& e) {
 			cout << "Неверный ввод" << endl;
@@ -36,7 +33,7 @@ int main(void) {
 			keeper.Set();
 		}
 		else if (command == "2") {
-			keeper.GetAll();
+			keeper.Get();
 		}
 		else if (command == "3") {
 			keeper.GetChoice();
@@ -48,10 +45,10 @@ int main(void) {
 			keeper.Change();
 		}
 		else if (command == "6") {
-			keeper.loadK();
+			keeper.Load();
 		}
 		else{
-			keeper.saveK();
+			keeper.Save();
 		}
 	}
 		system("pause");
@@ -69,31 +66,4 @@ void workMenu(void) {
 		"6 - Загрузить данные из файла\n"
 		"7 - Загрузить данные в файл"<<endl;
 
-}
-void menuForAuto(void) {
-	system("cls");
-	cout << "Работа с данными об автомобилях:\n"
-		"1 - Загрузить данные из файла\n"
-		"2 - Очистить данные в файле\n"
-		"3 - Ввести данные о новых автомобилях\n"
-		"4 - Показать данные о сохраненных автомобилях\n"
-		"5 - Вернуться\n";
-}
-void menuForMoto(void) {
-	system("cls");
-	cout << "Работа с данными о мотоциклах:\n"
-		"1 - Загрузить данные из файла\n"
-		"2 - Очистить данные в файле\n"
-		"3 - Ввести данные о новых мотоциклах\n"
-		"4 - Показать данные о сохраненных мотоциклах\n"
-		"5 - Вернуться\n";
-}
-void menuForBus(void) {
-	system("cls");
-	cout << "Работа с данными об автобусах:\n"
-		"1 - Загрузить данные из файла\n"
-		"2 - Очистить данные в файле\n"
-		"3 - Ввести данные о новых автобусах\n"
-		"4 - Показать данные о сохраненных автобусах\n"
-		"5 - Вернуться\n";
 }
